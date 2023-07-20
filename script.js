@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let display, operand1, operand2, operator, hasDot;
 
@@ -41,10 +41,10 @@ function onEqualPress() {
 }
 
 function onClear() {
-    display = "";
-    operand1 = "";
-    operand2 = "";
-    operator = "";
+    display = '';
+    operand1 = '';
+    operand2 = '';
+    operator = '';
     hasDot = false;
 }
 
