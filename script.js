@@ -14,8 +14,30 @@ function onOperatorPress(pressedOperator) {
 
 }
 
+//TODO: Handle divide by zero.
 function onEqualPress() {
-
+    const num1 = Number(operand1);
+    const num2 = Number(operand2);
+    let result = num1;
+    switch(operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num1 / num2;
+            break;
+    }
+    operand1 = result.toString();
+    operator = '';
+    operand2 = '';
+    hasDot = false;
+    display = operand1;
 }
 
 function onClear() {
