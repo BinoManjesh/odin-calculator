@@ -11,7 +11,17 @@ function onNumberPress(number) {
 }
 
 function onDotPress() {
-
+    if (operator) {
+        number2 = Number(operand2);
+        if (Number.isInteger(number2)) {
+            operand2 = number2 + '.';
+        }
+    } else {
+        number1 = Number(operand1);
+        if (Number.isInteger(number1)) {
+            operand1 = number1 + '.';
+        }
+    }
 }
 
 function onOperatorPress(pressedOperator) {
