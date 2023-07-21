@@ -23,6 +23,6 @@ body {
     min-height: 50px;
 }
 
-button.clear {
+button.clear, button.equal {
     min-width: 120px; 
 }
