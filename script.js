@@ -1,6 +1,7 @@
 'use strict';
 
 let operand1, operand2, operator;
+let hasDividedByZero = false;
 
 function onNumberPress(number) {
     if (operator) {
@@ -31,7 +32,6 @@ function onOperatorPress(pressedOperator) {
     operator = pressedOperator;
 }
 
-//TODO: Handle divide by zero.
 function onEqualPress() {
     const num1 = Number(operand1);
     const num2 = Number(operand2);
@@ -47,6 +47,13 @@ function onEqualPress() {
             result = num1 * num2;
             break;
         case '÷':
+            if (num2 === 0) {
+                operand1 = 'No. Ille. Nahi. Na. Non.';
+                operator = '';
+                operand2 = '';
+                hasDividedByZero = true;
+                return;
+            }
             result = num1 / num2;
             break;
     }
@@ -59,6 +66,7 @@ function onClear() {
     operand1 = '';
     operand2 = '';
     operator = '';
+    hasDividedByZero = false;
 }
 
 function onBackspace() {
@@ -82,9 +90,14 @@ for (const button of buttons) {
     for (const cssClass in functionMap) {
         if (button.classList.contains(cssClass)) {
             button.onclick = () => {
-                (functionMap[cssClass])(button.textContent);
+                if (!hasDividedByZero) {
+                    (functionMap[cssClass])(button.textContent);
+                } else {
+                    onClear();
+                }
                 display.textContent = operand1 + operator + operand2;
             }
+            break;
         }
     }
 }
