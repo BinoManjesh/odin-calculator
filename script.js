@@ -70,3 +70,21 @@ function onBackspace() {
         operand1 = operand1.slice(0, -1);
     }
 }
+
+onClear();
+const buttons = document.querySelectorAll('button');
+const functionMap = {
+    number: onNumberPress, dot: onDotPress, operator: onOperatorPress,
+    equal: onEqualPress, clear: onClear, backspace: onBackspace
+};
+const display = document.querySelector('.display');
+for (const button of buttons) {
+    for (const cssClass in functionMap) {
+        if (button.classList.contains(cssClass)) {
+            button.onclick = () => {
+                (functionMap[cssClass])(button.textContent);
+                display.textContent = operand1 + operator + operand2;
+            }
+        }
+    }
+}
