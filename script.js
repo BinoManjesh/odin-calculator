@@ -3,7 +3,11 @@
 let operand1, operand2, operator;
 
 function onNumberPress(number) {
-
+    if (operator) {
+        operand2 += number;
+    } else {
+        operand1 += number;
+    }
 }
 
 function onDotPress() {
@@ -11,7 +15,10 @@ function onDotPress() {
 }
 
 function onOperatorPress(pressedOperator) {
-
+    if (operand2) {
+        onEqualPress();
+    }
+    operator = pressedOperator;
 }
 
 //TODO: Handle divide by zero.
@@ -36,7 +43,6 @@ function onEqualPress() {
     operand1 = result.toString();
     operator = '';
     operand2 = '';
-    display = operand1;
 }
 
 function onClear() {
