@@ -13,12 +13,6 @@ body {
     font-family: 'Orbitron', 'Monospace';
 }
 
-.display {
-    display: flex;
-    align-items: center ;
-    padding: 10px
-}
-
 .calculator {
     margin-top: 20px;
     display: flex;
@@ -38,6 +32,14 @@ body {
 .row > button, .display  {
     min-width: 60px;
     min-height: 60px;
+}
+
+.display {
+    display: flex;
+    align-items: center ;
+    min-width: 100%;
+    width: 0;
+    overflow: hidden;
 }
 
 button.clear, button.equal {
