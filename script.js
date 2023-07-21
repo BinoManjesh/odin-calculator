@@ -1,6 +1,6 @@
 'use strict';
 
-let display, operand1, operand2, operator, hasDot;
+let display, operand1, operand2, operator;
 
 function onNumberPress(number) {
 
@@ -36,7 +36,6 @@ function onEqualPress() {
     operand1 = result.toString();
     operator = '';
     operand2 = '';
-    hasDot = false;
     display = operand1;
 }
 
@@ -45,7 +44,6 @@ function onClear() {
     operand1 = '';
     operand2 = '';
     operator = '';
-    hasDot = false;
 }
 
 function onBackspace() {
@@ -56,7 +54,7 @@ function onBackspace() {
     if (operand2) {
         operand2 = operand2.slice(0, -1);
     } else if (operator) {
-        operator = operator.slice(0, -1);
+        operator = '';
     } else {
         operand1 = operand1.slice(0, -1);
     }
