@@ -1,16 +1,33 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: gray;
+}
+
+.display, button {
+    border: outset rgb(42, 42, 42);
+    border-radius: 10px;
+    background-color: rgb(82, 82, 82);
+    font-size: large;
+    color: white;
+    font-family: 'Orbitron', 'Monospace';
 }
 
 .display {
-    border: black 1px solid;
+    display: flex;
+    align-items: center ;
+    padding: 10px
 }
 
 .calculator {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: rgb(49, 49, 49);
+    padding: 30px;
+    border-radius: 20px;
+    border: outset rgb(82, 82, 82);
 }
 
 .row {
@@ -19,10 +36,22 @@ body {
 }
 
 .row > button, .display  {
-    min-width: 50px;
-    min-height: 50px;
+    min-width: 60px;
+    min-height: 60px;
 }
 
 button.clear, button.equal {
-    min-width: 120px; 
+    min-width: 140px; 
+}
+
+.clear, .backspace {
+    background-color: rgb(72, 12, 12);
+}
+
+.operator {
+    background-color: rgb(140, 104, 37);
+}
+
+.equal {
+    background-color: rgb(21, 70, 21);
 }
